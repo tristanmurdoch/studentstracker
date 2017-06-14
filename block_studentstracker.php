@@ -115,12 +115,11 @@ class block_studentstracker extends block_base {
                 }
 
                 if ($hasrole == true) {
-				   $enrol->lastaccesscourse = $this->get_last_access($context->instanceid, $enrol->id);
-	       		   
-	       		   if ($enrol->lastaccesscourse != 0) {
+		   $enrol->lastaccesscourse = $this->get_last_access($context->instanceid, $enrol->id);	       		   
+	       	   if ($enrol->lastaccesscourse != 0) {
                        if ( (intval($enrol->lastaccesscourse) < strtotime($days, time()))
                          && (intval($enrol->lastaccesscourse) >= strtotime($dayscritical, time())) ) {
-	                    	$lastaccess = date('d/m/Y H:i', $enrol->lastaccesscourse);
+	                    $lastaccess = date('d/m/Y H:i', $enrol->lastaccesscourse);
                             $output = "<li class='studentstracker-first' style='background:".$colordays."'>";
                             $output .= $this->messaging($enrol)."<span> - $lastaccess</span></li>";
                             array_push($this->content->items, $output);
