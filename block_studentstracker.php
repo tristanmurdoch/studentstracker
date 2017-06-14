@@ -126,7 +126,7 @@ class block_studentstracker extends block_base {
                             $usercount++;
                             unset($output);
                         } else if (intval($enrol->lastaccesscourse) < strtotime($days, time())) {
-           		    		$lastaccess = date('d/m/Y H:i', $enrol->lastaccesscourse);
+           		    $lastaccess = date('d/m/Y H:i', $enrol->lastaccesscourse);
                             $output = "<li class='studentstracker-critical' style='background:".$colordayscritical."'>";
                             $output .= $this->messaging($enrol)."<span> - $lastaccess</span></li>";
                             array_push($this->content->items, $output);
